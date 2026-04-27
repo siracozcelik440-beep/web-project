@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Carbon Crown is a premium marketplace for carbon fiber motorcycle parts."
+    />
+    <title>Carbon Crown | Premium Carbon Fiber Parts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrapper">
+        <a class="brand" href="#home" aria-label="Carbon Crown Home">
+          <span class="brand-icon" aria-hidden="true">CC</span>
+          <span class="brand-text">Carbon Crown</span>
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">
+          <span class="sr-only">Toggle navigation menu</span>
+          <span aria-hidden="true">☰</span>
+        </button>
+
+        <nav aria-label="Primary navigation">
+          <ul class="primary-nav" id="primaryNav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#catalog">Catalog</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home" aria-labelledby="heroTitle">
+        <div class="container hero-grid">
+          <article class="hero-copy">
+            <p class="eyebrow">Performance Engineered</p>
+            <h1 id="heroTitle">The Elite Marketplace for Carbon Fiber Motorcycle Parts</h1>
+            <p>
+              Upgrade your machine with race-proven body kits, aerodynamic wings, and precision-crafted
+              protection parts selected for riders who demand maximum performance with minimum weight.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#catalog">Explore Catalog</a>
+              <a class="btn btn-secondary" href="#about">Our Mission</a>
+            </div>
+          </article>
+          <figure class="hero-media">
+            <img
+              src="assets/bike.png"
+              alt="Stylized superbike silhouette with carbon texture accents"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="featured" aria-labelledby="featuredTitle">
+        <div class="container">
+          <h2 id="featuredTitle">Featured Parts</h2>
+          <!-- JavaScript renders highlighted products here to demonstrate template literals and dynamic DOM updates. -->
+          <div class="featured-grid" id="featuredGrid" role="list"></div>
+        </div>
+      </section>
+
+      <section class="catalog" id="catalog" aria-labelledby="catalogTitle">
+        <div class="container">
+          <div class="section-heading">
+            <h2 id="catalogTitle">Catalog</h2>
+            <p>Filter by category or search by product name to quickly find the exact component.</p>
+          </div>
+
+          <div class="catalog-controls">
+            <label class="search-field" for="searchInput">
+              <span class="sr-only">Search products</span>
+              <input
+                type="search"
+                id="searchInput"
+                placeholder="Search products (e.g., fairing, winglet...)"
+                autocomplete="off"
+              />
+            </label>
+
+            <label for="categorySelect" class="sr-only">Filter by category</label>
+            <select id="categorySelect">
+              <option value="all">All Categories</option>
+            </select>
+          </div>
+
+          <!-- Dynamic grid: generated from JS array to simulate database-driven rendering. -->
+          <div class="product-grid" id="productGrid" role="list"></div>
+          <p class="empty-state" id="emptyState" hidden>No products match your search right now.</p>
+        </div>
+      </section>
+
+      <section class="about" id="about" aria-labelledby="aboutTitle">
+        <div class="container about-grid">
+          <article>
+            <h2 id="aboutTitle">About Carbon Crown</h2>
+            <p>
+              Carbon Crown started with one mission: connect riders to high-quality, genuinely tested
+              carbon fiber upgrades without the uncertainty of low-grade replicas.
+            </p>
+            <p>
+              We work with boutique manufacturers and race teams to curate parts that balance
+              lightness, durability, and visual impact. Every listed item includes practical use cases,
+              compatibility notes, and installation guidance.
+            </p>
+          </article>
+          <figure class="about-media">
+            <img src="./assets/about-workshop.svg" alt="Workshop illustration showing carbon fiber part development" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contactTitle">
+        <div class="container">
+          <h2 id="contactTitle">Contact Us</h2>
+          <p>Send us your bike model and goals. We will suggest the best setup.</p>
+
+          <form id="contactForm" novalidate>
+            <div class="form-grid">
+              <label>
+                Full Name
+                <input type="text" id="fullName" name="fullName" placeholder="Your full name" required />
+                <small class="error-message" id="fullNameError" aria-live="polite"></small>
+              </label>
+
+              <label>
+                Email Address
+                <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                <small class="error-message" id="emailError" aria-live="polite"></small>
+              </label>
+
+              <label>
+                Bike Model
+                <input type="text" id="bikeModel" name="bikeModel" placeholder="e.g., Ducati Panigale V4" required />
+                <small class="error-message" id="bikeModelError" aria-live="polite"></small>
+              </label>
+
+              <label>
+                Message
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell us what parts you are interested in..."
+                  required
+                ></textarea>
+                <small class="error-message" id="messageError" aria-live="polite"></small>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Request</button>
+            <p class="form-success" id="formSuccess" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>&copy; <span id="year"></span> Carbon Crown. Built for Internet Programming Course.</p>
+        <a href="#home">Back to top</a>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
